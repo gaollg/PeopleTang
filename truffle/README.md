@@ -23,9 +23,14 @@ truffle micrate --network development
 truffle micrate --network mumbai
 ```
 
-```base
-truffle test ./test/Lesson4ERC20.test.js
+```bash
+truffle micrate --network sepolia
 ```
 
-
+```bash
 truffle run verify PeopleTang@0x3ff3dcebd010dfa6011054c381f70bcf9c31bde9 --network mumbai --debug
+```
+
+```bash
+truffle run verify PeopleTang@0x3ff3dcebd010dfa6011054c381f70bcf9c31bde9 --network sepolia --debug
+```

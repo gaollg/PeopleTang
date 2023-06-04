@@ -41,7 +41,7 @@
  * https://trufflesuite.com/docs/truffle/getting-started/using-the-truffle-dashboard/
  */
 
-// require('dotenv').config();
+require('dotenv').config();
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
 const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -49,6 +49,7 @@ let config = {
   privateKey: process.env.web3_privateKey,
   infuraId: '',
 };
+const { INFURA_API_KEY, MNEMONIC } = process.env;
 
 module.exports = {
   /**
@@ -81,6 +82,13 @@ module.exports = {
       gas: 10000000,
       gasPrice: 1500000000,
       network_id: 80001,
+    },
+    sepolia: {
+      provider: () => new HDWalletProvider(config.privateKey, `https://sepolia.infura.io/v3/${INFURA_API_KEY}`),
+      networkCheckTimeout: 60 * 60 * 1000,
+      gas: 10000000,
+      gasPrice: 1500000000,
+      network_id: 11155111,
     },
     // An additional network, but with some advanced options…
     // advanced: {
@@ -141,6 +149,7 @@ module.exports = {
   },
   api_keys: {
     polygonscan: '',
+    etherscan: '',
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:

@@ -5046,7 +5046,7 @@ tr46@~0.0.3:
   resolved "https://registry.npmmirror.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==
 
-truffle-plugin-verify@^0.6.2:
+truffle-plugin-verify@^0.6.3:
   version "0.6.3"
   resolved "https://registry.npmmirror.com/truffle-plugin-verify/-/truffle-plugin-verify-0.6.3.tgz#f21c4e612265113283c5e4e3a5d5da316e03e188"
   integrity sha512-htGz8tH6LjuIH0s655TxMLaVuDz6wpvKq0ok+f4NcE45od0HDJzUMDYI1n5gYN421CuZxe5YrIitGNkFH5XneQ==

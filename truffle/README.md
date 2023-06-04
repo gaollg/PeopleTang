@@ -32,5 +32,5 @@ truffle run verify PeopleTang@0x3ff3dcebd010dfa6011054c381f70bcf9c31bde9 --netwo
 ```
 
 ```bash
-truffle run verify PeopleTang@0x3ff3dcebd010dfa6011054c381f70bcf9c31bde9 --network sepolia --debug
+truffle run verify PeopleTang@0xfeD47c0674fbB4Aa626bec61069b8872a942716c --network sepolia --debug
 ```

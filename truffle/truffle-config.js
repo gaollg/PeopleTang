@@ -49,7 +49,7 @@ let config = {
   privateKey: process.env.web3_privateKey,
   infuraId: '',
 };
-const { INFURA_API_KEY, MNEMONIC } = process.env;
+const { INFURA_API_KEY, MNEMONIC, POLYGONSCAN_KEY, ETHERSCAN_KEY } = process.env;
 
 module.exports = {
   /**
@@ -148,8 +148,8 @@ module.exports = {
     },
   },
   api_keys: {
-    polygonscan: '',
-    etherscan: '',
+    polygonscan: POLYGONSCAN_KEY,
+    etherscan: ETHERSCAN_KEY,
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:

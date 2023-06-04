@@ -7,9 +7,9 @@ import '@openzeppelin/contracts/access/Ownable.sol';
 pragma solidity 0.8.20;
 
 contract PeopleTang is ERC721URIStorage, Ownable {
-  uint256 public _CUR_TOKENID_ = 1;
-  /** 剩余数量 */
-  uint256 public remainingCount = 10000;
+  uint256 public _CUR_TOKENID_ = 0;
+  /** 最大数量 */
+  uint256 public maxCount = 10000;
   /** 价格 */
   uint256 public price = 0.0168 ether;
 
@@ -23,13 +23,13 @@ contract PeopleTang is ERC721URIStorage, Ownable {
 
   // ============= MINT =============
   function _mint_comm(address to, string calldata uri) internal virtual {
-    require(remainingCount >= _CUR_TOKENID_, 'Insufficient remaining quantity');
+    _CUR_TOKENID_ = _CUR_TOKENID_ + 1;//下标从1 开始计算
     _safeMint(to, _CUR_TOKENID_);
     _setTokenURI(_CUR_TOKENID_, uri);
-    _CUR_TOKENID_ = _CUR_TOKENID_ + 1;
   }
 
   function mint(string calldata uri) external payable {
+    require(maxCount >= _CUR_TOKENID_ + 1, 'Insufficient remaining quantity');
     require(msg.value >= price, 'Insufficient payment.');
     _mint_comm(msg.sender, uri);
     emit Mint(msg.sender, uri);
@@ -38,7 +38,7 @@ contract PeopleTang is ERC721URIStorage, Ownable {
   // ============ Ownable =============
   function mintOwner(address[] calldata receivers, string[] calldata uris) external onlyOwner {
     require(receivers.length == uris.length, 'Receivers-uris not match');
-    require(remainingCount >= remainingCount + receivers.length, 'Insufficient remaining quantity');
+    require(maxCount >= _CUR_TOKENID_ + receivers.length, 'Insufficient remaining quantity');
     emit MintOwner(receivers, uris);
 
     for (uint256 i = 0; i < receivers.length; i++) {

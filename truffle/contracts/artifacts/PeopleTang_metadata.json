@@ -324,6 +324,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "maxCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -402,19 +415,6 @@
 			{
 				"inputs": [],
 				"name": "price",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "remainingCount",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -670,11 +670,11 @@
 		"userdoc": {
 			"kind": "user",
 			"methods": {
+				"maxCount()": {
+					"notice": "最大数量 "
+				},
 				"price()": {
 					"notice": "价格 "
-				},
-				"remainingCount()": {
-					"notice": "剩余数量 "
 				}
 			},
 			"version": 1
@@ -684,13 +684,13 @@
 		"compilationTarget": {
 			"contracts/PeopleTang.sol": "PeopleTang"
 		},
-		"evmVersion": "london",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
 		},
 		"optimizer": {
-			"enabled": true,
+			"enabled": false,
 			"runs": 200
 		},
 		"remappings": []
@@ -825,11 +825,11 @@
 			]
 		},
 		"contracts/PeopleTang.sol": {
-			"keccak256": "0x21408adbc9a50a332f1165a0a0eb7cd47d016952f4a54bf4a0e6a2b466953c4c",
+			"keccak256": "0xbe224e69b1bd4377d72d845e5bf491446247b8746e93223372ffcefef37f1812",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://09408fa15005b138d805a20f679ec27218df60a391d34bc6f93a9617db658c10",
-				"dweb:/ipfs/QmPU6XpYya7Q3fQ7BpgJeM44yDMDdBmieX8RzFSW62RXQL"
+				"bzz-raw://d8b10ec79e9261625a9ae161baa4e77d67c85dff491334ee24df09e4a0c4ac00",
+				"dweb:/ipfs/QmdS2sUqWZ5dN69LgxNMXrP1Tr7Frz6DFEG2wMsRRzq1be"
 			]
 		}
 	},

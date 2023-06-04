@@ -34,3 +34,12 @@ truffle run verify PeopleTang@0x83C692cF7AEe160C3cD659E05f3C451513C9ac39 --netwo
 ```bash
 truffle run verify PeopleTang@0xfeD47c0674fbB4Aa626bec61069b8872a942716c --network sepolia --debug
 ```
+
+# 重要教训
+
+需要明确 evmVersion，否则开源代码会报错。
+sepolia 0.8.18 以上版本默认为 [paris]，mumbai 还不支持，故强制设为 istanbul。
+
+```
+evmVersion: 'istanbul'
+```

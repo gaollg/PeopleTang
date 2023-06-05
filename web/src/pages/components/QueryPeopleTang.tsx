@@ -37,7 +37,19 @@ export default function QueryPeopleTang(props: {}) {
 
   let loginDIV = <div className="text-sm py-2">当前账号: {account}</div>;
   if (!account) {
-    return <div>未登录</div>;
+    return (
+      <div>
+        <Button
+          className="ml-2"
+          type="primary"
+          onClick={async () => {
+            await Web3Helper.login();
+          }}
+        >
+          登录查询
+        </Button>
+      </div>
+    );
   }
   if (nfts.length == 0) {
     return (

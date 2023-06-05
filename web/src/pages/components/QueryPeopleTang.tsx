@@ -34,25 +34,35 @@ export default function QueryPeopleTang(props: {}) {
       clearInterval(intervalId);
     };
   }, []);
+
+  let loginDIV = <div className="text-sm py-2">当前账号: {account}</div>;
   if (!account) {
     return <div>未登录</div>;
   }
   if (nfts.length == 0) {
-    return <div>暂无购买 NFT</div>;
+    return (
+      <div>
+        {loginDIV}
+        <div>暂无购买 NFT</div>
+      </div>
+    );
   }
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {nfts.map((item, index) => {
-        return (
-          <div key={index} className="py-4 shadow-md">
-            <div className="flex flex-col items-center">
-              <Image src={item.url} />
-              <div className="mt-2">{item.id}</div>
+    <div>
+      {loginDIV}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {nfts.map((item, index) => {
+          return (
+            <div key={index} className="py-4 shadow-md">
+              <div className="flex flex-col items-center">
+                <Image src={item.url} />
+                <div className="mt-2">{item.id}</div>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

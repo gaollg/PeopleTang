@@ -28,7 +28,7 @@ export default function ReadMe(props: {}) {
           </div>
         </div>
       </Card>
-      <Card title="购买记录">
+      <Card title="购买记录" className="mt-4">
         <QueryPeopleTang />
       </Card>
     </div>

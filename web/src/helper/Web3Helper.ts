@@ -63,7 +63,8 @@ let Web3Helper = {
   },
   switchToMumbai: async () => {
     if (!window.ethereum) {
-      throw `未安装钱包, 请安装钱包后重试`;
+      console.error(`未安装钱包, 请安装钱包后重试`);
+      return;
     }
     await window.ethereum.request({
       method: 'wallet_addEthereumChain',
@@ -101,7 +102,8 @@ let Web3Helper = {
       return instanceWeb3;
     }
     if (!window.ethereum) {
-      throw `未安装钱包, 请安装钱包后重试`;
+      console.error(`未安装钱包, 请安装钱包后重试`);
+      return;
     }
     instanceWeb3 = new Web3(window.ethereum);
     return instanceWeb3;

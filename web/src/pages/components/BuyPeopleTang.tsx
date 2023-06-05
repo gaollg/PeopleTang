@@ -5,6 +5,7 @@ let web3 = Web3Helper.instance();
 
 export default function BuyPeopleTang(props: {}) {
   const [buyCount, setBuyCount] = useState<number>(1);
+  const [loading, setLoading] = useState(false);
   const [nftInfo, setNftInfo] = useState({
     _CUR_TOKENID_: '0',
     maxCount: '1',
@@ -47,15 +48,24 @@ export default function BuyPeopleTang(props: {}) {
           <Button
             className="ml-2"
             type="primary"
+            loading={loading}
             onClick={async () => {
-              await Web3Helper.login();
-              const hash = await Web3Helper.mint(nftInfo.price, [
-                // 'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',
-                // 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
-                `https://s2.coinmarketcap.com/static/img/coins/64x64/${parseInt(nftInfo._CUR_TOKENID_) + 1}.png`,
-              ]); //
-              if (hash) {
-                alert('交易成功，Hash:' + hash);
+              try {
+                setLoading(true);
+                await Web3Helper.login();
+                const hash = await Web3Helper.mint(nftInfo.price, [
+                  // 'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',
+                  // 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+                  `https://s2.coinmarketcap.com/static/img/coins/64x64/${parseInt(nftInfo._CUR_TOKENID_) + 1}.png`,
+                ]); //
+                if (hash) {
+                  alert('交易成功，Hash:' + hash);
+                }
+              } catch (e) {
+                console.error(e);
+                alert('出错');
+              } finally {
+                setLoading(false);
               }
             }}
           >

@@ -8,7 +8,7 @@ export default function Todo(props: {}) {
     <Card title="Todo" className="">
       <div className="">
         <div>
-          <Checkbox checked={true}>合约编写</Checkbox>
+          <Checkbox checked={true}>合约编写 (基于开源 openzeppelin 健壮)</Checkbox>
           <div className="border-0 border-l-8 border-solid border-gray-400 bg-gray-200 px-2 py-4 my-2 flex flex-col">
             <Checkbox checked={true}>ERC721</Checkbox>
             <Checkbox checked={true}>用户一次购买多个</Checkbox>
@@ -27,7 +27,8 @@ export default function Todo(props: {}) {
             <Checkbox checked={true}>用户钱包切换到测试网/主网</Checkbox>
             <Checkbox checked={true}>售价/销售数/总数量 从合约读取</Checkbox>
             <Checkbox checked={false}>购买</Checkbox>
-            <Checkbox checked={false}>展示拥有 NFT</Checkbox>
+            <Checkbox checked={false}>网页展示拥有 NFT</Checkbox>
+            <Checkbox checked={false}>钱包填加合约资产</Checkbox>
           </div>
         </div>
         <div>

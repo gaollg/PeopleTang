@@ -48,8 +48,13 @@ export default function BuyPeopleTang(props: {}) {
             className="ml-2"
             type="primary"
             onClick={async () => {
-              Web3Helper.login();
-              Web3Helper.mint(nftInfo.price, ['https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png']); //
+              await Web3Helper.login();
+              const hash = await Web3Helper.mint(nftInfo.price, [
+                'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',
+              ]); //
+              if (hash) {
+                alert('交易成功，Hash:' + hash);
+              }
             }}
           >
             {web3.utils.fromWei(nftInfo.price, 'ether')}ETH 购买

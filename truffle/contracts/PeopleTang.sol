@@ -2,12 +2,11 @@
 
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
-import '@openzeppelin/contracts/token/ERC721/ERC721.sol';   
 import '@openzeppelin/contracts/access/Ownable.sol';
 
 pragma solidity 0.8.20;
 
-contract PeopleTang is ERC721URIStorage, Ownable {
+contract PeopleTang is ERC721URIStorage, ERC721Enumerable, Ownable {
   uint256 public _CUR_TOKENID_ = 0;
   /** 最大数量 */
   uint256 public maxCount = 10000;
@@ -24,7 +23,7 @@ contract PeopleTang is ERC721URIStorage, Ownable {
 
   // ============= MINT =============
   function _mint_comm(address to, string calldata uri) internal virtual {
-    _CUR_TOKENID_ = _CUR_TOKENID_ + 1;//下标从1 开始计算
+    _CUR_TOKENID_ = _CUR_TOKENID_ + 1; //下标从1 开始计算
     _safeMint(to, _CUR_TOKENID_);
     _setTokenURI(_CUR_TOKENID_, uri);
   }
@@ -36,6 +35,46 @@ contract PeopleTang is ERC721URIStorage, Ownable {
     for (uint256 i = 0; i < uris.length; i++) {
       _mint_comm(msg.sender, uris[i]);
     }
+  }
+
+  function _beforeTokenTransfer(
+    address from,
+    address to,
+    uint256 tokenId,
+    uint256 batchSize
+  ) internal override(ERC721, ERC721Enumerable) {
+    super._beforeTokenTransfer(from, to, tokenId, batchSize);
+  }
+
+  function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {
+    super._burn(tokenId);
+  }
+
+  function supportsInterface(
+    bytes4 interfaceId
+  ) public view override(ERC721URIStorage, ERC721Enumerable) returns (bool) {
+    return super.supportsInterface(interfaceId);
+  }
+
+  function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+    return ERC721URIStorage.tokenURI(tokenId);
+  }
+
+  struct Token {
+    uint tokenId;
+    string tokenUrl;
+  }
+
+  function queryUserTokens(address user) public view returns (Token[] memory) {
+    uint balance = balanceOf(user);
+
+    Token[] memory retArray = new Token[](balance);
+    for (uint i = 0; i < retArray.length; i++) {
+      uint tokenId = tokenOfOwnerByIndex(user, i);
+      retArray[i].tokenId = tokenId;
+      retArray[i].tokenUrl = tokenURI(tokenId);
+    }
+    return retArray;
   }
 
   // ============ Ownable =============

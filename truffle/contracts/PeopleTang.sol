@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 
 import '@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol';
-import '@openzeppelin/contracts/token/ERC721/ERC721.sol';
+import '@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol';
+import '@openzeppelin/contracts/token/ERC721/ERC721.sol';   
 import '@openzeppelin/contracts/access/Ownable.sol';
 
 pragma solidity 0.8.20;
@@ -28,17 +29,19 @@ contract PeopleTang is ERC721URIStorage, Ownable {
     _setTokenURI(_CUR_TOKENID_, uri);
   }
 
-  function mint(string calldata uri) external payable {
-    require(maxCount >= _CUR_TOKENID_ + 1, 'Insufficient remaining quantity');
+  /** 支持一次铸造多个 */
+  function mint(string[] calldata uris) external payable {
+    require(maxCount >= _CUR_TOKENID_ + uris.length, 'Insufficient remaining quantity');
     require(msg.value >= price, 'Insufficient payment.');
-    _mint_comm(msg.sender, uri);
-    emit Mint(msg.sender, uri);
+    for (uint256 i = 0; i < uris.length; i++) {
+      _mint_comm(msg.sender, uris[i]);
+    }
   }
 
   // ============ Ownable =============
   function mintOwner(address[] calldata receivers, string[] calldata uris) external onlyOwner {
     require(receivers.length == uris.length, 'Receivers-uris not match');
-    require(maxCount >= _CUR_TOKENID_ + receivers.length, 'Insufficient remaining quantity');
+    require(maxCount >= _CUR_TOKENID_ + uris.length, 'Insufficient remaining quantity');
     emit MintOwner(receivers, uris);
 
     for (uint256 i = 0; i < receivers.length; i++) {

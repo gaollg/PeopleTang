@@ -31,7 +31,7 @@ export default function BuyPeopleTang(props: {}) {
     };
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col">
       <div>
         <div className="flex flex-row">
           <InputNumber
@@ -44,7 +44,6 @@ export default function BuyPeopleTang(props: {}) {
               }
             }}
           />
-          <div> Eth</div>
           <Button
             className="ml-2"
             type="primary"
@@ -56,13 +55,12 @@ export default function BuyPeopleTang(props: {}) {
               console.log('owner:', owner);
             }}
           >
-            购买
+            {web3.utils.fromWei(nftInfo.price, 'ether')}ETH 购买
           </Button>
         </div>
         <div className="text-sm text-gray-600">
           剩余数量: (<span className="text-red-700">{nftInfo._CUR_TOKENID_}</span>/{nftInfo.maxCount})
         </div>
-        <div>{JSON.stringify(nftInfo, null, 2)};</div>
       </div>
     </div>
   );

@@ -50,7 +50,9 @@ export default function BuyPeopleTang(props: {}) {
             onClick={async () => {
               await Web3Helper.login();
               const hash = await Web3Helper.mint(nftInfo.price, [
-                'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',
+                // 'https://s2.coinmarketcap.com/static/img/coins/64x64/3890.png',
+                // 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png',
+                `https://s2.coinmarketcap.com/static/img/coins/64x64/${parseInt(nftInfo._CUR_TOKENID_) + 1}.png`,
               ]); //
               if (hash) {
                 alert('交易成功，Hash:' + hash);

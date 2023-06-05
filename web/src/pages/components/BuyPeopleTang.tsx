@@ -63,13 +63,18 @@ export default function BuyPeopleTang(props: {}) {
                 }
               } catch (e) {
                 console.error(e);
-                alert('出错');
+                alert('出错, 请打开控制台检查');
               } finally {
                 setLoading(false);
               }
             }}
           >
-            {web3.utils.fromWei(nftInfo.price, 'ether')}ETH 购买
+            {(() => {
+              if (loading) {
+                return '测试网有时比较慢';
+              }
+              return web3.utils.fromWei(nftInfo.price, 'ether') + ' ETH 购买';
+            })()}
           </Button>
         </div>
         <div className="text-sm text-gray-600">

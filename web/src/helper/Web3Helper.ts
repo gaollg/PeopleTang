@@ -7,7 +7,7 @@ let contractAddress = '0x59548FB3CDEA24d9C8eF860d6243B3b28184dF01';
 let instanceWeb3: Web3;
 
 let commUseGas = (amount: string, fromAddress: string, method: string, paramArray: any[]): Promise<string> => {
-  return new Promise<string>(async (resolve, reject) => {
+  let getRawTransaction = async () => {
     let contractLesson6ERC20 = Web3Helper.getContract();
     let fn = contractLesson6ERC20.methods[method];
 
@@ -35,11 +35,22 @@ let commUseGas = (amount: string, fromAddress: string, method: string, paramArra
       data: transferData,
       chainId: chainId,
     };
+    return rawTransaction;
+  };
 
-    instanceWeb3.eth.sendTransaction(rawTransaction).on('transactionHash', (hash) => {
-      console.log('txHash:', hash);
-      resolve(hash);
-    });
+  return new Promise<string>(async (resolve, reject) => {
+    try {
+      let rawTransaction = await getRawTransaction();
+      let result = await instanceWeb3.eth.sendTransaction(rawTransaction);
+      console.log('txHash:', result);
+      resolve(result.transactionHash);
+      // .on('transactionHash', (hash) => {
+      //   console.log('txHash:', hash);
+      //   resolve(hash);
+      // });
+    } catch (e) {
+      reject(e);
+    }
   });
 };
 

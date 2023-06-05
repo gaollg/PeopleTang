@@ -71,6 +71,10 @@ let Web3Helper = {
       ],
     });
   },
+  getLoginAccountQuiet: async () => {
+    let accounts = await instanceWeb3.eth.getAccounts();
+    return accounts[0];
+  },
   login: async () => {
     await Web3Helper.switchToMumbai();
     Web3Helper.instance();
@@ -97,9 +101,10 @@ let Web3Helper = {
     let contract = new Contract(PeopleTangAbiData.abi, contractAddress);
     return contract;
   },
-  read: async (methodOrFieldName: string) => {
+  read: async (methodOrFieldName: string, paramArray: any[]) => {
     const c = Web3Helper.getContract();
-    return await c.methods[methodOrFieldName]().call();
+    let fn = c.methods[methodOrFieldName];
+    return await fn.apply({}, paramArray).call();
   },
   mint: async (amount: string, uris: string[]): Promise<string> => {
     let accounts = await instanceWeb3.eth.getAccounts();

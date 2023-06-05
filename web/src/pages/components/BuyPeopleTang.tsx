@@ -28,7 +28,9 @@ export default function BuyPeopleTang(props: {}) {
           className="ml-2"
           type="primary"
           onClick={() => {
-            setValue(99);
+            // setValue(99);
+            // web3.eth.getAccounts(console.log);
+            Web3Helper.login();
           }}
         >
           购买

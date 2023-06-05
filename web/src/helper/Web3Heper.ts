@@ -44,6 +44,43 @@ let commUseGas = (fromAddress: string, method: string, paramArray: any[]): Promi
 };
 
 let Web3Helper = {
+  addTestNetword: async () => {
+    //   await window.ethereum.request({
+    //     method: "wallet_addEthereumChain",
+    //     params: NetworkConfiguration.params
+    // });
+  },
+  switchToMumbai: async () => {
+    if (!window.ethereum) {
+      throw `未安装钱包, 请安装钱包后重试`;
+    }
+    await window.ethereum.request({
+      method: 'wallet_addEthereumChain',
+      params: [
+        {
+          chainId: '0x' + (80001).toString(16),
+          chainName: 'Mumbai',
+          nativeCurrency: {
+            name: 'Mumbai',
+            symbol: 'MATIC',
+            decimals: 18,
+          },
+          rpcUrls: ['https://matic-mumbai.chainstacklabs.com'],
+          blockExplorerUrls: ['https://mumbai.polygonscan.com/'],
+        },
+      ],
+    });
+  },
+  login: async () => {
+    await Web3Helper.switchToMumbai();
+    Web3Helper.instance();
+    let accounts = await instanceWeb3.eth.getAccounts();
+    if (accounts.length == 0) {
+      await window.ethereum.enable();
+      accounts = await instanceWeb3.eth.getAccounts();
+    }
+    return accounts[0];
+  },
   instance: (): Web3 => {
     if (instanceWeb3) {
       return instanceWeb3;

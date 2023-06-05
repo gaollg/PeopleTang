@@ -1,4 +1,4 @@
-import Web3Helper from '@/helper/Web3Heper';
+import Web3Helper from '@/helper/Web3Helper';
 import { Button, Divider, Card, InputNumber } from 'antd';
 import { useEffect, useState } from 'react';
 let web3 = Web3Helper.instance();

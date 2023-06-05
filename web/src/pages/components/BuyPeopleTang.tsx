@@ -63,7 +63,7 @@ export default function BuyPeopleTang(props: {}) {
           </Button>
         </div>
         <div className="text-sm text-gray-600">
-          剩余数量: (<span className="text-red-700">{nftInfo._CUR_TOKENID_}</span>/{nftInfo.maxCount})
+          限购数量: (<span className="text-red-700">{nftInfo._CUR_TOKENID_}</span>/{nftInfo.maxCount})
         </div>
       </div>
     </div>

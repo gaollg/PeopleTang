@@ -3,12 +3,12 @@ import { TransactionConfig } from 'web3-core';
 import { Contract, ContractOptions } from 'web3-eth-contract';
 import PeopleTangAbiData from './PeopleTang.json';
 
-let contractAddress = '0xa7c7c2886171160145810436481c62bdd8d6beec';
+let contractAddress = '0x59548FB3CDEA24d9C8eF860d6243B3b28184dF01';
 let instanceWeb3: Web3;
 
 let commUseGas = (fromAddress: string, method: string, paramArray: any[]): Promise<string> => {
   return new Promise<string>(async (resolve, reject) => {
-    let contractLesson6ERC20 = Web3Helper.getContractLesson7ERC20V3Factory();
+    let contractLesson6ERC20 = Web3Helper.getContract();
     let fn = contractLesson6ERC20.methods[method];
 
     console.log(paramArray);
@@ -91,11 +91,20 @@ let Web3Helper = {
     instanceWeb3 = new Web3(window.ethereum);
     return instanceWeb3;
   },
-  getContractLesson7ERC20V3Factory: (): Contract => {
+  getContract: (): Contract => {
     let Contract = Web3Helper.instance().eth.Contract;
     //@ts-ignore
     let contract = new Contract(PeopleTangAbiData.abi, contractAddress);
     return contract;
+  },
+  read: async (methodOrFieldName: string) => {
+    const c = Web3Helper.getContract();
+    return await c.methods[methodOrFieldName]().call();
+  },
+  mint: async (uris: string[]): Promise<string> => {
+    let accounts = await instanceWeb3.eth.getAccounts();
+    let result = await commUseGas(accounts[0], 'mint', [uris]);
+    return result;
   },
   createStdERC20: async (param: {
     _erc20_template_: string;

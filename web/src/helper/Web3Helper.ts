@@ -6,7 +6,7 @@ import PeopleTangAbiData from './PeopleTang.json';
 let contractAddress = '0x59548FB3CDEA24d9C8eF860d6243B3b28184dF01';
 let instanceWeb3: Web3;
 
-let commUseGas = (fromAddress: string, method: string, paramArray: any[]): Promise<string> => {
+let commUseGas = (amount: string, fromAddress: string, method: string, paramArray: any[]): Promise<string> => {
   return new Promise<string>(async (resolve, reject) => {
     let contractLesson6ERC20 = Web3Helper.getContract();
     let fn = contractLesson6ERC20.methods[method];
@@ -19,7 +19,7 @@ let commUseGas = (fromAddress: string, method: string, paramArray: any[]): Promi
       to: contractAddress,
       data: transferData,
       from: fromAddress,
-      value: 0x0,
+      value: amount,
     });
 
     let chainId = await instanceWeb3.eth.getChainId();
@@ -31,7 +31,7 @@ let commUseGas = (fromAddress: string, method: string, paramArray: any[]): Promi
       nonce: nonce, //instanceWeb3.utils.toHex(nonce),
       gasPrice: gasPrice,
       gas: estimateGasRes * 2,
-      value: '0x0',
+      value: amount,
       data: transferData,
       chainId: chainId,
     };
@@ -101,9 +101,9 @@ let Web3Helper = {
     const c = Web3Helper.getContract();
     return await c.methods[methodOrFieldName]().call();
   },
-  mint: async (uris: string[]): Promise<string> => {
+  mint: async (amount: string, uris: string[]): Promise<string> => {
     let accounts = await instanceWeb3.eth.getAccounts();
-    let result = await commUseGas(accounts[0], 'mint', [uris]);
+    let result = await commUseGas(amount, accounts[0], 'mint', [uris]);
     return result;
   },
   createStdERC20: async (param: {
@@ -114,7 +114,7 @@ let Web3Helper = {
     // decimals: number;
   }): Promise<string> => {
     let accounts = await instanceWeb3.eth.getAccounts();
-    let result = await commUseGas(accounts[0], 'createStdERC20', [
+    let result = await commUseGas('0', accounts[0], 'createStdERC20', [
       param._erc20_template_,
       param.totalSupply,
       param.name,

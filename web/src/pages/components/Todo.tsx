@@ -26,8 +26,9 @@ export default function Todo(props: {}) {
             <Checkbox checked={true}>用户钱包检测</Checkbox>
             <Checkbox checked={true}>用户钱包切换到测试网/主网</Checkbox>
             <Checkbox checked={true}>售价/销售数/总数量 从合约读取</Checkbox>
-            <Checkbox checked={false}>购买</Checkbox>
-            <Checkbox checked={false}>网页展示拥有 NFT</Checkbox>
+            <Checkbox checked={true}>购买</Checkbox>
+            <Checkbox checked={true}>网页展示拥有 NFT</Checkbox>
+            <Checkbox checked={false}>批量购买</Checkbox>
             <Checkbox checked={false}>钱包填加合约资产</Checkbox>
           </div>
         </div>

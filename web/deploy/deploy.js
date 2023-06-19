@@ -64,15 +64,15 @@ let handleHtml = async (version) => {
     cwd: config.backupDIR,
   });
   let str = rs.stdout;
-  let startIndex = str.indexOf('BENI-CONFIG-START');
-  let endIndex = str.indexOf('BENI-CONFIG-END', startIndex);
+  let startIndex = str.indexOf('CHANGAN-CONFIG-START');
+  let endIndex = str.indexOf('CHANGAN-CONFIG-END', startIndex);
   if (startIndex == -1 || endIndex == -1) {
     throw 'index.html config placeholder error';
   }
 
   let replaceHtml = fs.readFileSync(path.resolve(__dirname, config.siteConfigPath), 'utf-8');
 
-  let resultHtml = str.substring(0, startIndex) + ' BENI-CONFIG-START -->\n';
+  let resultHtml = str.substring(0, startIndex) + ' CHANGAN-CONFIG-START -->\n';
   resultHtml += replaceHtml;
   resultHtml += `\n<script>\nwindow._deploy_version = "${version}";\nwindow._deploy_at = ${Date.now()};\n</script>\n`;
   resultHtml += '<!-- ' + str.substring(endIndex);
@@ -115,4 +115,7 @@ var start = async () => {
   process.exit(0);
 };
 
-start();
+start().catch((e) => {
+  console.error(e);
+  process.exit(0);
+});

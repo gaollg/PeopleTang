@@ -22,9 +22,22 @@ export default function PTNFTIntro2() {
       <img className="w-full" src="https://static.peopletang.io/tang-dao/logo-peopletang-long.png" />
 
       <div className="flex items-center justify-center">
-        <div className="flex flex-row gap-4">
-          <div>1</div>
-          <div>2</div>
+        <div className="flex flex-row gap-4 items-center justify-center">
+          <div>
+            <a href="https://twitter.com/TangDAO_" target="_blank">
+              <img className="w-[40px] h-[40px]" src="https://static.peopletang.io/tang-dao/tw.png" />
+            </a>
+          </div>
+          <div>
+            <a href="https://linktr.ee/tangdao" target="_blank">
+              <img className="w-[40px] h-[40px]" src="https://static.peopletang.io/tang-dao/discord.png" />
+            </a>
+          </div>
+          <div>
+            <a href="https://medium.com/@tangdao" target="_blank">
+              <img className="w-[40px] h-[40px]" src="https://static.peopletang.io/tang-dao/medium.png" />
+            </a>
+          </div>
         </div>
       </div>
       <img className="w-full" src="https://static.peopletang.io/tang-dao/banner-bottom-1.png" />

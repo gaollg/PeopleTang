@@ -47,3 +47,7 @@ button {
 .group:hover .group-hover\:animate-shine {
   animation: shine 1.6s;
 }
+.hover\:shadow-product:hover {
+  --tw-shadow: 0 6px 12px rgba(0,0,0,.08);
+  --tw-shadow-colored: 0 6px 12px var(--tw-shadow-color)
+}

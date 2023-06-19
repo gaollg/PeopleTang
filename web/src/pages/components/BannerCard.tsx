@@ -22,7 +22,13 @@ export default function BannerCard({
   disableBorderRadius = false,
 }: BannerProps) {
   return (
-    <div className={cn('mx-auto w-full h-full', className)}>
+    <div
+      className={cn(
+        'mx-auto w-full h-full',
+        'transition duration-200 ease-in-out transform hover:-translate-y-1 md:hover:-translate-y-1.5 hover:shadow-product',
+        className
+      )}
+    >
       <div className={cn('h-full group flex justify-center relative overflow-hidden cursor-pointer', classNameInner)}>
         <img
           src={url}

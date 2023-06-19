@@ -1,3 +1,4 @@
+import PTCarousel from './componentsHome/PTCarousel';
 import PTNFTGridShow from './componentsHome/PTNFTGridShow';
 import PTTopNav from './componentsHome/PTTopNav';
 
@@ -6,6 +7,7 @@ export default function HomePage() {
     <div>
       <PTTopNav />
       <PTNFTGridShow />
+      <PTCarousel />
     </div>
   );
 }

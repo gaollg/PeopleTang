@@ -14,7 +14,7 @@ export default function PTTopNav() {
         <div className="flex flex-row gap-4 items-center justify-center">
           <div>T</div>
           <div>D</div>
-          <div className="bg-black text-[#e60c14] py-2 px-2 rounded-md">Connect Wallet</div>
+          <div className="bg-black text-[#e60c14] py-2 px-2 rounded-md cursor-pointer select-none">Connect Wallet</div>
         </div>
       </div>
 
@@ -43,8 +43,8 @@ export default function PTTopNav() {
                   />
                 </div>
                 <div className="text-center py-2">从公元 618 年开始，往上或者往下</div>
-                <div className="px-12">
-                  <div className="flex items-center justify-center bg-[#e70101] py-2 rounded-md cursor-pointer">
+                <div className="px-12 md:px-16 lg:px-24 xl:px-32">
+                  <div className="flex items-center justify-center bg-[#e70101] py-2 rounded-md cursor-pointer select-none	">
                     MINT
                   </div>
                 </div>

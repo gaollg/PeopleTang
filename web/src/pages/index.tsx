@@ -1,11 +1,11 @@
-import PTNFTShow from './componentsHome/PTNFTShow';
+import PTNFTGridShow from './componentsHome/PTNFTGridShow';
 import PTTopNav from './componentsHome/PTTopNav';
 
 export default function HomePage() {
   return (
     <div>
       <PTTopNav />
-      <PTNFTShow />
+      <PTNFTGridShow />
     </div>
   );
 }

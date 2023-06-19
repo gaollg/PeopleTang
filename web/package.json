@@ -2,11 +2,22 @@
   "private": true,
   "author": "Gaollg <gaollg@qq.com>",
   "scripts": {
-    "dev": "umi dev",
+    "autodev": "node ./deploy/version.js && umi build && node ./deploy/upload.js config=config.dev.json && npm run deploydev v=max",
+    "autostaging": "node ./deploy/version.js && umi build && node ./deploy/upload.js config=config.staging.json && npm run deploystaging v=max",
     "build": "umi build",
+    "deployapp": "node ./deploy/deploy.js config=config.app.json",
+    "deploydev": "node ./deploy/deploy.js config=config.dev.json",
+    "deploystaging": "node ./deploy/deploy.js config=config.staging.json",
+    "dev": "cross-env PORT=3333 umi dev",
+    "dev4": "cross-env PORT=3334 umi dev",
+    "generate": "graphql-codegen",
+    "gql": "graphql-codegen",
     "postinstall": "umi setup",
     "setup": "umi setup",
-    "start": "npm run dev"
+    "start": "npm run dev",
+    "temp": "npm run deploydev v=max",
+    "uploadapp": "node ./deploy/upload.js config=config.app.json && npm run deploydev v=max",
+    "uploaddev": "node ./deploy/upload.js config=config.dev.json && npm run deploydev v=max"
   },
   "dependencies": {
     "antd": "^5.4.4",

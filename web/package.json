@@ -31,6 +31,9 @@
     "@types/react-dom": "^18.0.11",
     "@umijs/plugins": "^4.0.66",
     "tailwindcss": "^3",
+    "archiver": "^5.3.1",
+    "node-ssh": "13.0.0",
+    "fs-extra": "^10.1.0",
     "typescript": "4.1.2"
   }
 }

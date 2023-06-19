@@ -8,7 +8,7 @@
     "deployapp": "node ./deploy/deploy.js config=config.app.json",
     "deploydev": "node ./deploy/deploy.js config=config.dev.json",
     "deploystaging": "node ./deploy/deploy.js config=config.staging.json",
-    "dev": "cross-env PORT=3333 umi dev",
+    "dev": "umi dev",
     "dev4": "cross-env PORT=3334 umi dev",
     "generate": "graphql-codegen",
     "gql": "graphql-codegen",

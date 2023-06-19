@@ -14,15 +14,23 @@ export default function PTTopNav() {
         <div className="flex flex-row gap-4 items-center justify-center">
           <div>
             <a href="https://twitter.com/TangDAO_" target="_blank">
-              <img className="w-[40px] h-[40px]" src="https://static.peopletang.io/tang-dao/tw.png" />
+              <img
+                className="w-[40px] h-[40px]  cursor-pointer select-none transition duration-500 ease-in-out transform hover:scale-110"
+                src="https://static.peopletang.io/tang-dao/tw.png"
+              />
             </a>
           </div>
           <div>
             <a href="https://linktr.ee/tangdao" target="_blank">
-              <img className="w-[40px] h-[40px]" src="https://static.peopletang.io/tang-dao/discord.png" />
+              <img
+                className="w-[40px] h-[40px]  cursor-pointer select-none transition duration-500 ease-in-out transform hover:scale-110"
+                src="https://static.peopletang.io/tang-dao/discord.png"
+              />
             </a>
           </div>
-          <div className="bg-black text-[#e60c14] py-2 px-2 rounded-md cursor-pointer select-none">Connect Wallet</div>
+          <div className="bg-black text-[#e60c14] py-2 px-2 rounded-md cursor-pointer select-none transition duration-500 ease-in-out transform hover:scale-110">
+            Connect Wallet
+          </div>
         </div>
       </div>
 

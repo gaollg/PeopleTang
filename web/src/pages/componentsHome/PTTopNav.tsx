@@ -18,33 +18,36 @@ export default function PTTopNav() {
         </div>
       </div>
 
-      <div className="flex flex-col">
-        <div className="bg-[#e60c14] h-[100px]"></div>
-        <div
-          className="h-[32px] -mt-[24px] w-full"
-          style={{
-            backgroundImage: 'url(https://static.peopletang.io/tang-dao/logo-peopletang-long.png)',
-            backgroundSize: 'contain',
-          }}
-        ></div>
-      </div>
+      <div className="flex flex-col relative">
+        <div className="bg-[#e60c14] h-[50%] absolute w-full">
+          <div
+            className="h-[32px] -bottom-[8px] w-full absolute"
+            style={{
+              backgroundImage: 'url(https://static.peopletang.io/tang-dao/logo-peopletang-long.png)',
+              backgroundSize: 'contain',
+            }}
+          ></div>
+        </div>
 
-      <div className="-mt-[110px] w-full z-10 relative">
-        <div className="grid grid-cols-2">
-          <div className="flex items-center justify-center">
-            <img src="https://static.peopletang.io/tang-dao/logo-tang.png" className="w-full object-cover" />
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="box-border">
-              <div className="px-12">
-                <img
-                  src="https://static.peopletang.io/tang-dao/nft-flash.gif?a=1"
-                  className="w-full h-full rounded-md"
-                />
-              </div>
-              <div className="text-center py-2">从公元 618 年开始，往上或者往下</div>
-              <div className="px-12">
-                <div className="flex items-center justify-center bg-[#e70101] py-2 rounded-md cursor-pointer">MINT</div>
+        <div className="mt-[8%] w-full z-10">
+          <div className="grid grid-cols-2">
+            <div className="flex items-center justify-center">
+              <img src="https://static.peopletang.io/tang-dao/logo-tang.png" className="w-full object-cover" />
+            </div>
+            <div className="flex items-center justify-center">
+              <div className="box-border">
+                <div className="px-12">
+                  <img
+                    src="https://static.peopletang.io/tang-dao/nft-flash.gif?a=1"
+                    className="w-full h-full rounded-md"
+                  />
+                </div>
+                <div className="text-center py-2">从公元 618 年开始，往上或者往下</div>
+                <div className="px-12">
+                  <div className="flex items-center justify-center bg-[#e70101] py-2 rounded-md cursor-pointer">
+                    MINT
+                  </div>
+                </div>
               </div>
             </div>
           </div>

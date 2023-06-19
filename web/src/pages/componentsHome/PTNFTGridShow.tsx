@@ -1,5 +1,8 @@
+import BannerCard from '../components/BannerCard';
+
 function Item({ src }: { src: string }) {
-  return <img src={src} className="w-full" />;
+  return <BannerCard url={src} />;
+  // return <img src={src} className="w-full" />;
 }
 
 export default function PTNFTGridShow() {

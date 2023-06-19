@@ -6,6 +6,7 @@ specifiers:
   '@umijs/plugins': ^4.0.66
   antd: ^5.4.4
   archiver: ^5.3.1
+  classnames: 2.3.2
   fs-extra: ^10.1.0
   node-ssh: 13.0.0
   tailwindcss: ^3
@@ -17,6 +18,7 @@ specifiers:
 
 dependencies:
   antd: 5.4.4
+  classnames: 2.3.2
   umi: 4.0.66_c3kril5ezbjien74eo3fc5xmsq
   web3: 1.9.0
   web3-core: 1.9.0

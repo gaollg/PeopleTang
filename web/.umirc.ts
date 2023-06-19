@@ -12,6 +12,6 @@ export default defineConfig({
   tailwindcss: {},
   plugins: ['@umijs/plugins/dist/tailwindcss'],
   // base: '/tintin-lesson-6/dist/',
-  publicPath: '/PeopleTang/web/dist/',
+  // publicPath: '/PeopleTang/web/dist/',
   hash: true,
 });

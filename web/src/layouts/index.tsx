@@ -3,6 +3,7 @@ import styles from './index.less';
 import { Menu, MenuProps } from 'antd';
 
 export default function Layout() {
+  return <Outlet />;
   const items: MenuProps['items'] = [
     {
       label: '测试币水龙头',

@@ -1,6 +1,6 @@
 export default function PTTopNav() {
   return (
-    <div>
+    <div className="bg-white">
       <div className="bg-[#e60c14] h-[300px] p-4">
         <div className="flex flex-row items-center justify-center">
           <div className="mr-8">
@@ -47,6 +47,10 @@ export default function PTTopNav() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div>
+        <img className="w-full py-2" src="https://static.peopletang.io/tang-dao/logo-peopletang-long.png" />
       </div>
 
       <div className="bg-white h-[600px]">

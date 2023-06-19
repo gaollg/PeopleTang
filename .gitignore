@@ -11,3 +11,4 @@ truffle/account2.env
 **/deploy/config.dev.json
 **/deploy/config.line.json
 **/deploy/config.staging.json
+**/dist/**

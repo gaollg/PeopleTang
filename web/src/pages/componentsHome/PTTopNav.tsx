@@ -36,7 +36,7 @@ export default function PTTopNav() {
             </div>
             <div className="flex items-center justify-center">
               <div className="box-border">
-                <div className="px-12">
+                <div className="px-12 md:px-16 lg:px-24 xl:px-32">
                   <img
                     src="https://static.peopletang.io/tang-dao/nft-flash.gif?a=1"
                     className="w-full h-full rounded-md"
@@ -52,14 +52,6 @@ export default function PTTopNav() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div>
-        <img className="w-full py-2" src="https://static.peopletang.io/tang-dao/logo-peopletang-long.png" />
-      </div>
-
-      <div className="bg-white h-[600px]">
-        <div></div>
       </div>
     </div>
   );

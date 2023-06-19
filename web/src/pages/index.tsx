@@ -10,6 +10,10 @@ export default function HomePage() {
       <PTTopNav />
       <PTNFTGridShow />
       <PTCarousel />
+
+      <img className="w-full" src="https://static.peopletang.io/tang-dao/product-01.jpg" />
+      <img className="w-full" src="https://static.peopletang.io/tang-dao/product-02.jpg" />
+
       <PTSplite />
 
       <PTNFTIntro2 />

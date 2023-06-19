@@ -33,7 +33,7 @@ export default function PTNFTGridShow() {
         <p>
           在 People Tang 中每一个 PFP 都有属于他/她的故事，快乐的悲伤的迷人的滑稽的，情绪价值由你来定义。
           <br />
-          我们希望所有热爱华语文化的全球朋友通过People Tang认识我们，加入我们。
+          我们希望所有热爱华语文化的全球朋友通过 People Tang 认识我们，加入我们。
         </p>
       </div>
     </div>
